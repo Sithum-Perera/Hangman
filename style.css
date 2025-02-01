@@ -100,45 +100,59 @@ body {
     width: calc(100% / 9 - 5px);
 }
 
+.keyboard button[disabled]{
+    opacity: 0.6;
+    pointer-events: none;
+}
+
 :where(.game-modal, .keyboard) button:hover {
     background: #8286c9;
     transform: scale(1.1);  /* Slightly increases the size for a subtle effect */
 }
-.game-model{
+.game-modal{
     position: fixed;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    display: none;
+    opacity: 0;
+    padding: 0 10px;
+    pointer-events: none;
+    z-index: 999;
+    display: flex;
     align-items: center;
     justify-content: center;
     background: rgba(0, 0, 0, 0.6);
+    transition: opacity 0.4s ease;
 }
-.game-model .content{
+.game-modal.show{
+    opacity: 1;
+    pointer-events: auto;
+}
+.game-modal .content{
     background: #fff;
     max-width: 420px;
     width: 100%;
     text-align: center;border-radius: 10px;
     padding: 30px;
 }
-.game-model img{
+.game-modal img{
     max-width: 130px;
     margin-bottom: 20px;
 }
-.game-model h4{
+.game-modal h4{
     font-size: 1.53rem;
 }
-.game-model p {
+.game-modal p {
     font-size: 1.15rem;
     margin: 15px 0 30px;
     font-weight: 500;
 }
-.game-model p b {
+.game-modal p b {
     color: #5E63BA;
     font-weight: 600;
 }
-.game-model button{
+.game-modal button{
     padding: 12px 23px;
 }
 
